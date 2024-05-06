@@ -28,7 +28,7 @@
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container-fluid bg-light pt-3 d-none d-lg-block topbar">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
@@ -59,7 +59,6 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -72,21 +71,27 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                        <a href="#nosotros" class="nav-item nav-link">Nosotros</a>
+                        <a href="#" class="nav-item nav-link active">Inicio</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nosotros</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="#nosotros" class="dropdown-item">¿Quienes somos?'</a>
+                                <a href="#testimonios" class="dropdown-item">Testimonios</a>
+                            </div>
+                        </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Explorar</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="#explorar" class="dropdown-item">Todos</a>
-                                <a href="#" class="dropdown-item">Tecnologia</a>
-                                <a href="#" class="dropdown-item">Negocios</a>
-                                <a href="#" class="dropdown-item">Educación</a>
-                                <a href="#" class="dropdown-item">Legales</a>
+                                <a href="#tech" class="dropdown-item">Tecnologia</a>
+                                <a href="#negocios" class="dropdown-item">Negocios</a>
+                                <a href="#educacion" class="dropdown-item">Educación</a>
+                                <a href="#leyes" class="dropdown-item">Legales</a>
                             </div>
                         </div>
-                        <a href="service.html" class="nav-item nav-link">Mis servicios</a>
+                        <a href="{{ route('servicios') }}" class="nav-item nav-link">Mis servicios</a>
 
-                        <a href="contact.html" class="nav-item nav-link">Perfil</a>
+                        <a href="{{ route('sesion') }}" class="nav-item nav-link">Sesión</a>
                     </div>
                 </div>
             </nav>
@@ -105,7 +110,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">TALENTO</h4>
                             <h1 class="display-3 text-white mb-md-4">Encuentra el servicio adecuado para ti</h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Explorar</a>
+                            <a href="#explorar" class="btn btn-primary py-md-3 px-md-5 mt-2">Explorar</a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +120,8 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Talento</h4>
                             <h1 class="display-3 text-white mb-md-4">Ofrece tus servicios de forma fácil y segura </h1>
-                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Mis Servicios</a>
+                            <a href="{{ route('servicios') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Mis
+                                Servicios</a>
                         </div>
                     </div>
                 </div>
@@ -164,7 +170,8 @@
                                 <img class="img-fluid" src="img/about-2.jpg" alt="">
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary mt-1">Explorar</a>
+                        <a href="#explorar" class="btn btn-primary mt-1">Explorar</a>
+                        <a href="#testimonios" class="btn btn-primary mt-1">Comentarios</a>
                     </div>
                 </div>
             </div>
@@ -233,7 +240,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Tecnología</h5>
                             <p class="card-text">3 Servicios</p>
-                            <a href="#" class="btn btn-primary">Ver más</a>
+                            <a href="#tech" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -243,7 +250,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Negocios</h5>
                             <p class="card-text">3 Servicios</p>
-                            <a href="#" class="btn btn-primary">Ver más</a>
+                            <a href="#negocios" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -253,7 +260,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Educación</h5>
                             <p class="card-text">3 Servicios</p>
-                            <a href="#" class="btn btn-primary">Ver más</a>
+                            <a href="#educacion" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -263,7 +270,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Legales</h5>
                             <p class="card-text">3 Servicios</p>
-                            <a href="#" class="btn btn-primary">Ver más</a>
+                            <a href="#leyes" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -274,7 +281,7 @@
 
 
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="tech">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios de</h6>
@@ -328,8 +335,11 @@
                 </div>
             </div>
         </div>
+        <div class="text-center">
+            <a href="#explorar">Todos los servicios</a>
+        </div>
     </div>
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="educacion">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios de</h6>
@@ -384,10 +394,13 @@
                 </div>
             </div>
         </div>
+        <div class="text-center">
+            <a href="#explorar">Todos los servicios</a>
+        </div>
     </div>
 
     <!-- Packages Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="negocios">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios de</h6>
@@ -451,9 +464,12 @@
                 </div>
             </div>
         </div>
+        <div class="text-center">
+            <a href="#explorar">Todos los servicios</a>
+        </div>
     </div>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="leyes">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios</h6>
@@ -507,6 +523,9 @@
                 </div>
             </div>
         </div>
+        <div class="text-center">
+            <a href="#explorar">Todos los servicios</a>
+        </div>
     </div>
 
     <!-- Packages End -->
@@ -515,11 +534,14 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" id="testimonios">
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonios</h6>
                 <h1>Qué Dicen Nuestros Clientes</h1>
+                <div class="text-center">
+                    <a href="#nosotros">¿Quienes somos?</a>
+                </div>
             </div>
             <div class="owl-carousel testimonial-carousel">
                 <div class="text-center pb-4">
@@ -546,7 +568,7 @@
                     <img class="img-fluid mx-auto" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
                     <div class="testimonial-text bg-white p-4 mt-n5">
                         <p class="mt-5">¡Impresionante! Encontré al profesional perfecto para mi proyecto y la
-                            comunicación fue excelente en todo momento. ¡Definitivamente volveré!
+                            comunicación fue excelente en todo momento.
                         </p>
                         <h5 class="text-truncate">David Rodríguez</h5>
                         <span>Cliente</span>

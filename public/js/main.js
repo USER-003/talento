@@ -1,24 +1,27 @@
 (function ($) {
     "use strict";
-    
-    // Dropdown on mouse hover
-    $(document).ready(function () {
-        function toggleNavbarMethod() {
-            if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
+
+    $(document).ready(function() {
+        console.log("El documento está listo.");
+
+        var topbarHeight = $('.topbar').outerHeight(); // Obtén la altura de la barra superior
+        console.log("Altura de la topbar:", topbarHeight);
+
+        $(window).scroll(function() {
+            console.log("Desplazamiento detectado.");
+
+            if ($(this).scrollTop() > topbarHeight) {
+                console.log("Desplazamiento más allá de la topbar. Agregando clase fixed-top.");
+                $('.navbar-expand-lg').addClass('fixed-top'); // Agrega la clase fixed-top cuando el usuario desplaza más allá de la barra superior
             } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
+                console.log("Desplazamiento hacia arriba. Eliminando clase fixed-top.");
+                $('.navbar-expand-lg').removeClass('fixed-top'); // Elimina la clase fixed-top cuando el usuario se desplaza hacia arriba
             }
-        }
-        toggleNavbarMethod();
-        $(window).resize(toggleNavbarMethod);
+        });
     });
-    
-    
+
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -65,6 +68,6 @@
             }
         }
     });
-    
+
 })(jQuery);
 
