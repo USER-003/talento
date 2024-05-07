@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Talento</title>
+    <title>Talento | Servicios</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -161,7 +161,7 @@
                         <td>{{ $servicio->nombre_servicio }}</td>
                         <td class="truncate-text">{{ $servicio->descripcion_servicio }}</td>
                         <td>{{ $servicio->precio_servicio }}</td>
-                        <td>{{ $servicio->categoria_id }}</td>
+                        <td class="text-center">{{ $servicio->categoria_id }}</td>
                         <td class="truncate-text">{{ $servicio->imagen }}</td>
                         <td>
                             <a class="btn btn-primary mb-3" style="width: 100%"

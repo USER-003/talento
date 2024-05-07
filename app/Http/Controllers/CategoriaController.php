@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -12,7 +13,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = Categoria::all();
+        $servicios = Servicio::all();
+        return view('index', compact('categorias', 'servicios'));
     }
 
     /**

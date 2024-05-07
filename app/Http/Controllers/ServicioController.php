@@ -16,6 +16,11 @@ class ServicioController extends Controller
         return view('servicios.servicio', compact('servicios'));
     }
 
+    public function datos()
+    {
+        $servicios = Servicio::all();
+        return view('index', compact('servicios'));
+    }
     /**
      * Show the form for creating a new resource.
      */

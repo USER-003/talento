@@ -234,46 +234,20 @@
                 <h1>Categorías</h1>
             </div>
             <div class="row">
-                <div class="col-lg-6 mb-4"> <!-- Para dos categorías por fila en pantallas grandes -->
-                    <div class="card">
-                        <img class="card-img-top" src="img/destination-1.jpg" alt="Tecnología">
-                        <div class="card-body">
-                            <h5 class="card-title">Tecnología</h5>
-                            <p class="card-text">3 Servicios</p>
-                            <a href="#tech" class="btn btn-primary">Ver más</a>
+                @foreach ($categorias as $categoria)
+                    <div class="col-lg-6 mb-4"> <!-- Para dos categorías por fila en pantallas grandes -->
+                        <div class="card">
+                            <img class="card-img-top" src="img/destination-{{ $categoria->id }}.jpg"
+                                alt="Tecnología">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">{{ $categoria->nombre_categoria }}</h5>
+                                <p class="card-text">{{ $categoria->descripcion_categoria }}</p>
+                                <a href="#tech" class="btn btn-primary">Ver más</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card">
-                        <img class="card-img-top" src="img/destination-2.jpg" alt="Negocios">
-                        <div class="card-body">
-                            <h5 class="card-title">Negocios</h5>
-                            <p class="card-text">3 Servicios</p>
-                            <a href="#negocios" class="btn btn-primary">Ver más</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card">
-                        <img class="card-img-top" src="img/destination-3.jpg" alt="Educación">
-                        <div class="card-body">
-                            <h5 class="card-title">Educación</h5>
-                            <p class="card-text">3 Servicios</p>
-                            <a href="#educacion" class="btn btn-primary">Ver más</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card">
-                        <img class="card-img-top" src="img/destination-4.jpg" alt="Legales">
-                        <div class="card-body">
-                            <h5 class="card-title">Legales</h5>
-                            <p class="card-text">3 Servicios</p>
-                            <a href="#leyes" class="btn btn-primary">Ver más</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
@@ -288,51 +262,28 @@
                 <h1>TECNOLOGÍA</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/package-1.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Búsqueda avanzada de servicios</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
+
+                @foreach ($servicios as $servicio)
+                    @if ($servicio->categoria_id === 1)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
+                                <div class="p-4">
+                                    <a class="h5 text-decoration-none"
+                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                    <p>{{ $servicio->descripcion_servicio }}</p>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">Precio:</h6>
+                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/package-2.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Integración de pagos seguros</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/package-3.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Gestión de citas y horarios</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
+
             </div>
         </div>
         <div class="text-center">
@@ -346,52 +297,28 @@
                 <h1>EDUCACIÓN</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/destination-1.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Clases en línea</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
+
+                @foreach ($servicios as $servicio)
+                    @if ($servicio->categoria_id === 2)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
+                                <div class="p-4">
+                                    <a class="h5 text-decoration-none"
+                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                    <p>{{ $servicio->descripcion_servicio }}</p>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">Precio:</h6>
+                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/destination-2.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Recursos educativos interactivos</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/destination-3.jpg" alt="">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Plataformas de aprendizaje
-                                personalizadas</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
+
             </div>
         </div>
         <div class="text-center">
@@ -407,61 +334,28 @@
                 <h1>NEGOCIOS</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/package-3.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
 
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Consultoría de estrategia
-                                empresarial</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
+                @foreach ($servicios as $servicio)
+                    @if ($servicio->categoria_id === 3)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
+                                <div class="p-4">
+                                    <a class="h5 text-decoration-none"
+                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                    <p>{{ $servicio->descripcion_servicio }}</p>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">Precio:</h6>
+                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/package-4.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
+                    @endif
+                @endforeach
 
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Marketing digital y publicidad</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/package-5.jpg" alt="">
-                        <div class="p-4">
-                            <div class="d-flex justify-content-between mb-3">
-
-                            </div>
-                            <a class="h5 text-decoration-none" href="">Asesoría financiera y contable</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="text-center">
@@ -476,54 +370,28 @@
                 <h1>LEGALES</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/destination-4.jpg"
-                            alt="Asesoramiento legal en línea">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Asesoramiento legal en línea</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
+
+                @foreach ($servicios as $servicio)
+                    @if ($servicio->categoria_id === 4)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="package-item bg-white mb-2">
+                                <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
+                                <div class="p-4">
+                                    <a class="h5 text-decoration-none"
+                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                    <p>{{ $servicio->descripcion_servicio }}</p>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">Precio:</h6>
+                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/destination-5.jpg"
-                            alt="Gestión de documentos legales">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Gestión de documentos legales</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/servicios/destination-6.jpg"
-                            alt="Representación jurídica digital">
-                        <div class="p-4">
-                            <a class="h5 text-decoration-none" href="">Representación jurídica digital</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-map-marker text-primary mr-2"></i>San Miguel
-                                    </h6>
-                                    <h5 class="m-0">$360</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
+
             </div>
         </div>
         <div class="text-center">
