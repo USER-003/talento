@@ -89,9 +89,9 @@
                                 <a href="#leyes" class="dropdown-item">Legales</a>
                             </div>
                         </div>
-                        <a href="{{ route('servicios') }}" class="nav-item nav-link">Mis servicios</a>
+                        <a href="{{ route('servicio.index') }}" class="nav-item nav-link">Mis servicios</a>
 
-                        <a href="{{ route('sesion') }}" class="nav-item nav-link">Sesión</a>
+                        <a href="#" class="nav-item nav-link">GUEST</a>
                     </div>
                 </div>
             </nav>
@@ -120,7 +120,7 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Talento</h4>
                             <h1 class="display-3 text-white mb-md-4">Ofrece tus servicios de forma fácil y segura </h1>
-                            <a href="{{ route('servicios') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Mis
+                            <a href="{{ route('servicio.index') }}" class="btn btn-primary py-md-3 px-md-5 mt-2">Mis
                                 Servicios</a>
                         </div>
                     </div>
@@ -478,7 +478,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/destination-4.jpg" alt="Asesoramiento legal en línea">
+                        <img class="img-fluid" src="img/servicios/destination-4.jpg"
+                            alt="Asesoramiento legal en línea">
                         <div class="p-4">
                             <a class="h5 text-decoration-none" href="">Asesoramiento legal en línea</a>
                             <div class="border-top mt-4 pt-4">
@@ -493,7 +494,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/destination-5.jpg" alt="Gestión de documentos legales">
+                        <img class="img-fluid" src="img/servicios/destination-5.jpg"
+                            alt="Gestión de documentos legales">
                         <div class="p-4">
                             <a class="h5 text-decoration-none" href="">Gestión de documentos legales</a>
                             <div class="border-top mt-4 pt-4">
@@ -508,7 +510,8 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="package-item bg-white mb-2">
-                        <img class="img-fluid" src="img/destination-6.jpg" alt="Representación jurídica digital">
+                        <img class="img-fluid" src="img/servicios/destination-6.jpg"
+                            alt="Representación jurídica digital">
                         <div class="p-4">
                             <a class="h5 text-decoration-none" href="">Representación jurídica digital</a>
                             <div class="border-top mt-4 pt-4">

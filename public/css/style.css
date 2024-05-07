@@ -172,6 +172,19 @@ a:not([href]):not([class]):hover {
   text-decoration: none;
 }
 
+
+/* link */
+.truncate-text {
+    max-width: 200px;
+    /* Define el ancho máximo de la celda */
+    white-space: nowrap;
+    /* Evita que el texto se ajuste automáticamente a la siguiente línea */
+    overflow: hidden;
+    /* Oculta el texto que excede el ancho máximo */
+    text-overflow: ellipsis;
+    /* Agrega puntos suspensivos (...) al final del texto truncado */
+}
+
 pre,
 code,
 kbd,

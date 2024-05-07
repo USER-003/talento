@@ -1,15 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServicioController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('inicio');
 
-Route::get('/sesion', function () {
-    return view('sesion');
-})->name('sesion');
-
-Route::get('/servicios', function () {
-    return view('servicios');
-})->name('servicios');
+Route::resource('servicio', ServicioController::class);
