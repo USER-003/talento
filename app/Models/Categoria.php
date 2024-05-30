@@ -1,5 +1,7 @@
 <?php
 
+// app/Models/CategoriaDeServicio.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +11,10 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre_categoria', 'descripcion_categoria'];
+    protected $fillable = [
+        'nombre_categoria',
+        'descripcion_categoria',
+    ];
 
     public function servicios()
     {

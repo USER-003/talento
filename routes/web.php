@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Categoria;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\CategoriaController;

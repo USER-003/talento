@@ -36,7 +36,7 @@ class ServicioController extends Controller
     {
         // Convertir categoria_id a un número entero
 
-        $request->merge(['categoria_id' => intval($request->categoria_id)]);
+        $request->merge(['id_categoria' => intval($request->categoria_id)]);
         // Crear el nuevo registro de servicio
         $servicio = Servicio::create($request->all());
 

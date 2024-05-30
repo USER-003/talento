@@ -1,4 +1,5 @@
 <?php
+// app/Models/Servicio.php
 
 namespace App\Models;
 
@@ -9,10 +10,24 @@ class Servicio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['categoria_id', 'nombre_servicio', 'descripcion_servicio', 'precio_servicio', 'imagen'];
+
+
+    protected $fillable = [
+        'id_categoria',
+        'nombre_servicio',
+        'descripcion_servicio',
+        'precio',
+        'email',
+        'numero_contacto',
+    ];
 
     public function categoria()
     {
         return $this->belongsTo(Categoria::class);
+    }
+
+    public function miservicio()
+    {
+        return $this->hasMany(MiServicio::class);
     }
 }
