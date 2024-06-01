@@ -12,21 +12,17 @@ class ServicioController extends Controller
      */
     public function index()
     {
+        //
         $servicios = Servicio::all();
         return view('servicios.servicio', compact('servicios'));
     }
 
-    public function datos()
-    {
-        $servicios = Servicio::all();
-        return view('index', compact('servicios'));
-    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('servicios.create');
+        //
     }
 
     /**
@@ -34,20 +30,13 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        // Convertir categoria_id a un número entero
-
-        $request->merge(['id_categoria' => intval($request->categoria_id)]);
-        // Crear el nuevo registro de servicio
-        $servicio = Servicio::create($request->all());
-
-        // Redirigir a la página de índice de servicios
-        return redirect()->route('servicio.index');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Servicio $servicio)
+    public function show(string $id)
     {
         //
     }
@@ -55,27 +44,24 @@ class ServicioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Servicio $servicio)
+    public function edit(string $id)
     {
-        return view('servicios.edit', compact('servicio'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Servicio $servicio)
+    public function update(Request $request, string $id)
     {
-        $servicio->update($request->all());
-
-        return redirect()->route('servicio.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Servicio $servicio)
+    public function destroy(string $id)
     {
-        $servicio->delete();
-        return back();
+        //
     }
 }

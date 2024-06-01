@@ -1,27 +1,23 @@
 <?php
-// app/Models/Usuario.php
 
 namespace App\Models;
 
-use \app\Models\MiServicio;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_usuario';
 
-    protected $fillable = [
-        'nombre',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['nombre', 'email', 'password'];
 
-    public function serviciosPersonales()
+    protected $hidden = ['password'];
+
+    public function servicios()
     {
-        return $this->hasMany(MiServicio::class);
+        return $this->belongsToMany(Servicio::class, 'servicios_personales', 'id_usuario', 'id_servicio')
+                    ->withPivot('fecha_contratacion', 'estado_contratacion');
     }
 }
