@@ -16,7 +16,7 @@ class CategoriaDeServicioController extends Controller
     {   
         $categorias = CategoriasDeServicio::all();
         $servicios = Servicio::all();
-        return view('index', compact('categorias','servicios'));
+        return view('login', compact('categorias','servicios'));
     }
 
     /**
