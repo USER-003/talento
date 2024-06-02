@@ -63,7 +63,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
+                <a href="{{route('inicio')}}" class="navbar-brand">
                     <h1 class="m-0 text-primary"><span class="text-dark">TALEN</span>TO</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -71,27 +71,28 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="#" class="nav-item nav-link active">Inicio</a>
+                        <a href="{{route('#inicio')}}" class="nav-item nav-link active">Inicio</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nosotros</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="#nosotros" class="dropdown-item">¿Quienes somos?'</a>
-                                <a href="#testimonios" class="dropdown-item">Testimonios</a>
+                                <a href="{{route('nosotros')}}" class="dropdown-item">¿Quienes somos?'</a>
+                                <a href="{{route('testimonios')}}" class="dropdown-item">Testimonios</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Explorar</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="#explorar" class="dropdown-item">Todos</a>
-                                <a href="#tech" class="dropdown-item">Tecnologia</a>
-                                <a href="#negocios" class="dropdown-item">Negocios</a>
-                                <a href="#educacion" class="dropdown-item">Educación</a>
-                                <a href="#leyes" class="dropdown-item">Legales</a>
+                                <a href="{{route('todos')}}" class="dropdown-item">Todos</a>
+                                <a href="{{route('tech')}}" class="dropdown-item">Tecnologia</a>
+                                <a href="{{route('negocios')}}" class="dropdown-item">Negocios</a>
+                                <a href="{{route('educacion')}}" class="dropdown-item">Educación</a>
+                                <a href="{{route('leyes')}}" class="dropdown-item">Legales</a>
                             </div>
                         </div>
-                        <a href="{{ route('servicio.index') }}" class="nav-item nav-link">Mis servicios</a>
+                        <!--- 
+                        <a href="" class="nav-item nav-link">Mis servicios</a>--->
 
-                        <a href="#" class="nav-item nav-link">GUEST</a>
+                        <a href="{{ route('register') }}" class="nav-item nav-link">Registrarse</a>
                     </div>
                 </div>
             </nav>

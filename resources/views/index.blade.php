@@ -1,5 +1,8 @@
-
+@if (auth()->check())
+    @extends('layouts.app')
+@else
     @extends('layouts.guest')
+@endif
 
     @section('content')
     
@@ -141,7 +144,7 @@
                 @foreach ($categorias as $categoria)
                     <div class="col-lg-6 mb-4"> <!-- Para dos categorías por fila en pantallas grandes -->
                         <div class="card">
-                            <img class="card-img-top" src="img/destination-{{ $categoria->id }}.jpg"
+                            <img class="card-img-top" src="img/destination-{{ $categoria->id_categoria }}.jpg"
                                 alt="Tecnología">
                             <div class="card-body">
                                 <h5 class="card-title text-capitalize">{{ $categoria->nombre_categoria }}</h5>

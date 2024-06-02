@@ -1,5 +1,8 @@
-
-@extends('layouts.guest')
+@if (auth()->check())
+    @extends('layouts.app')
+@else
+    @extends('layouts.guest')
+@endif
 
 @section('content')
 
