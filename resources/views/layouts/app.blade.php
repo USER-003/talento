@@ -59,50 +59,56 @@
     </div>
     <!-- Topbar End -->
 
-    <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
-        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="{{route('inicio')}}" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">TALEN</span>TO</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
-                        <a href="{{route('#inicio')}}" class="nav-item nav-link active">Inicio</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nosotros</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('nosotros')}}" class="dropdown-item">¿Quienes somos?'</a>
-                                <a href="{{route('testimonios')}}" class="dropdown-item">Testimonios</a>
-                            </div>
+    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+            <a href="{{route('inicio')}}" class="navbar-brand">
+                <h1 class="m-0 text-primary"><span class="text-dark">TALEN</span>TO</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav ml-auto py-0">
+                    <a href="{{route('#inicio')}}" class="nav-item nav-link active">Inicio</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nosotros</a>
+                        <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <a href="{{route('nosotros')}}" class="dropdown-item">¿Quienes somos?'</a>
+                            <a href="{{route('testimonios')}}" class="dropdown-item">Testimonios</a>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Explorar</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{route('todos')}}" class="dropdown-item">Todos</a>
-                                <a href="{{route('tech')}}" class="dropdown-item">Tecnologia</a>
-                                <a href="{{route('negocios')}}" class="dropdown-item">Negocios</a>
-                                <a href="{{route('educacion')}}" class="dropdown-item">Educación</a>
-                                <a href="{{route('leyes')}}" class="dropdown-item">Legales</a>
-                            </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Explorar</a>
+                        <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <a href="{{route('todos')}}" class="dropdown-item">Todos</a>
+                            <a href="{{route('tech')}}" class="dropdown-item">Tecnologia</a>
+                            <a href="{{route('negocios')}}" class="dropdown-item">Negocios</a>
+                            <a href="{{route('educacion')}}" class="dropdown-item">Educación</a>
+                            <a href="{{route('leyes')}}" class="dropdown-item">Legales</a>
                         </div>
-                        <a href="{{ route('servicio.index') }}" class="nav-item nav-link">Mis servicios</a>
-
-                        <a href="{{ route('logout') }}" class="nav-item nav-link">Cerrar Sesión</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cuenta</a>
+                        <div class="dropdown-menu border-0 rounded-0 m-0">
+                            @if(Auth::check())
+                                <a href="{{ route('servicio.index') }}" class="dropdown-item">Mis servicios</a>
+                                <a href="{{ route('logout') }}" class="dropdown-item">Cerrar Sesión</a>
+                            @else
+                                <a href="{{ route('register') }}" class="dropdown-item">Registrarse</a>
+                                <a href="{{ route('login') }}" class="dropdown-item">Iniciar Sesión</a>
+                            @endif
+                        </div>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </div>
-    <!-- Navbar End -->
-
+</div>
 
     @yield('content')
-    <!-- Footer Start -->
 
+    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5"
         style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
@@ -118,13 +124,9 @@
         </div>
     </div>
     <!-- Footer End -->
-    
-    
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-            class="fa fa-angle-double-up"></i></a>
-
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

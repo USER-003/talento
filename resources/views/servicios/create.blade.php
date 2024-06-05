@@ -37,17 +37,29 @@
             </div>
             <div class="mb-3">
                 <label for="precio_servicio" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="precio_servicio" name="precio_servicio">
+                <input type="number" class="form-control" id="precio" name="precio">
             </div>
+
+
             <div class="mb-3">
-                <label for="categoria_id" class="form-label">Categoría</label>
-                <select class="form-select" id="categoria_id" name="categoria_id">
+                <input type="number" class="form-control d-none" id="id_usuario" name="id_usuario" value={{$usuarios}} readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="id_categoria" class="form-label">Categoría</label>
+                <select class="form-select" id="id_categoria" name="id_categoria">
                     <option value="1">Tecnologia</option>
                     <option value="2">Negocios</option>
                     <option value="3">Educacion</option>
                     <option value="4">Legales</option>
                 </select>
             </div>
+
+            <div class="mb-3">
+                <label for="numero_contacto" class="form-label">Número telefonico</label>
+                <input type="text" class="form-control" id="numero_contacto" name="numero_contacto">
+            </div>
+
 
             <div class="mb-3">
                 <label for="imagen_servicio" class="form-label">URL de la imagen</label>

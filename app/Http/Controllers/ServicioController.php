@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ServicioController extends Controller
 {
@@ -12,8 +14,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        //
-        $servicios = Servicio::all();
+        $servicios = Servicio::where('id_usuario', Auth::id())->get();
         return view('servicios.servicio', compact('servicios'));
     }
 
@@ -22,7 +23,8 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        //
+        $usuarios = Auth::id();
+        return view('servicios.create', compact('usuarios'));
     }
 
     /**
@@ -30,7 +32,11 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $servicio = Servicio::create(
+            $request->all()
+        );
+
+        return redirect()->route('servicio.index');
     }
 
     /**
@@ -44,24 +50,23 @@ class ServicioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Servicio $servicio)
     {
-        //
+        return view('servicios.edit', compact('servicio'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    
+    public function update(Request $request, Servicio $servicio)
     {
-        //
+        $servicio->update($request->all());
+        return redirect()->route('servicio.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Servicio $servicio)
     {
-        //
+        $servicio->delete();
+        return back();
     }
 }

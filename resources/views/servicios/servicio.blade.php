@@ -1,8 +1,4 @@
-@if (auth()->check())
-    @extends('layouts.app')
-@else
-    @extends('layouts.guest')
-@endif
+@extends('layouts.app')
 
 @section('content')
 
@@ -22,20 +18,20 @@
             <tbody>
                 @foreach ($servicios as $servicio)
                     <tr>
-                        <th scope="row">{{ $servicio->id }}</th>
+                        <th scope="row">{{ $servicio->id_servicios_personales }}</th>
                         <td>{{ $servicio->nombre_servicio }}</td>
                         <td class="truncate-text">{{ $servicio->descripcion_servicio }}</td>
-                        <td>{{ $servicio->precio_servicio }}</td>
-                        <td class="text-center">{{ $servicio->categoria_id }}</td>
+                        <td>{{ $servicio->precio }}</td>
+                        <td class="text-center">{{ $servicio->id_categoria }}</td>
                         <td class="truncate-text">{{ $servicio->imagen }}</td>
                         <td>
                             <a class="btn btn-primary mb-3" style="width: 100%"
-                                href="{{ route('servicio.edit', $servicio->id) }}" role="button">Editar</a>
+                                href="{{ route('servicio.edit', $servicio->id_servicios_personales) }}" role="button">Editar</a>
                             <a class="btn btn-danger" style="width: 100%" href="#"
-                                onclick="confirmDelete('{{ $servicio->id }}')">Eliminar</a>
+                                onclick="confirmDelete('{{ $servicio->id_servicios_personales }}')">Eliminar</a>
 
-                            <form action="{{ route('servicio.destroy', $servicio->id) }}" method="POST"
-                                id="delete-form-{{ $servicio->id }}" style="display: none;">
+                            <form action="{{ route('servicio.destroy', $servicio->id_servicios_personales) }}" method="POST"
+                                id="delete-form-{{ $servicio->id_servicios_personales }}" style="display: none;">
                                 @csrf
                                 @method('DELETE')
                             </form>

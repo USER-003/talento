@@ -23,6 +23,8 @@ Route::get('/#leyes')->name('leyes');
 Route::middleware(AuthM::class)->group(function(){
     
     Route::resource('servicio', ServicioController::class);
+    Route::resource('categoria', CategoriaController::class);
+
 });
 
 // Routes auth

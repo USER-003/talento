@@ -1,11 +1,8 @@
-@if (auth()->check())
-    @extends('layouts.app')
-@else
-    @extends('layouts.guest')
-@endif
+@extends('layouts.app')
 
-    @section('content')
-    
+@section('title', 'Talento')
+
+@section('content')
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
@@ -171,7 +168,7 @@
             <div class="row">
 
                 @foreach ($servicios as $servicio)
-                    @if ($servicio->categoria_id === 1)
+                    @if ($servicio->id_categoria === 1)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
@@ -182,7 +179,7 @@
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
                                             <h6 class="m-0">Precio:</h6>
-                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                            <h5 class="m-0">${{ $servicio->precio }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +203,7 @@
             <div class="row">
 
                 @foreach ($servicios as $servicio)
-                    @if ($servicio->categoria_id === 2)
+                    @if ($servicio->id_categoria === 3)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
@@ -217,7 +214,7 @@
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
                                             <h6 class="m-0">Precio:</h6>
-                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                            <h5 class="m-0">${{ $servicio->precio }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +240,7 @@
             <div class="row">
 
                 @foreach ($servicios as $servicio)
-                    @if ($servicio->categoria_id === 3)
+                    @if ($servicio->id_categoria === 2)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
@@ -254,7 +251,7 @@
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
                                             <h6 class="m-0">Precio:</h6>
-                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                            <h5 class="m-0">${{ $servicio->precio }}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -279,7 +276,7 @@
             <div class="row">
 
                 @foreach ($servicios as $servicio)
-                    @if ($servicio->categoria_id === 4)
+                    @if ($servicio->id_categoria === 4)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
@@ -290,7 +287,7 @@
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
                                             <h6 class="m-0">Precio:</h6>
-                                            <h5 class="m-0">${{ $servicio->precio_servicio }}</h5>
+                                            <h5 class="m-0">${{ $servicio->precio }}</h5>
                                         </div>
                                     </div>
                                 </div>

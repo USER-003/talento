@@ -40,16 +40,21 @@
             <div class="mb-3">
                 <label for="precio_servicio" class="form-label">Precio</label>
                 <input type="number" class="form-control" id="precio_servicio" name="precio_servicio"
-                    value="{{ $servicio->precio_servicio }}">
+                    value="{{ $servicio->precio }}">
             </div>
             <div class="mb-3">
-                <label for="categoria_id" class="form-label">Categoría</label>
-                <select class="form-select" id="categoria_id" name="categoria_id">
-                    <option value="1" @if ($servicio->categoria_id === 1) selected @endif>Tecnologia</option>
-                    <option value="2" @if ($servicio->categoria_id === 2) selected @endif>Negocios</option>
-                    <option value="3" @if ($servicio->categoria_id === 3) selected @endif>Educacion</option>
-                    <option value="4" @if ($servicio->categoria_id === 4) selected @endif>Legales</option>
+                <label for="id_categoria" class="form-label">Categoría</label>
+                <select class="form-select" id="id_categoria" name="id_categoria">
+                    <option value="1" @if ($servicio->id_categoria === 1) selected @endif>Tecnologia</option>
+                    <option value="2" @if ($servicio->id_categoria === 2) selected @endif>Negocios</option>
+                    <option value="3" @if ($servicio->id_categoria === 3) selected @endif>Educacion</option>
+                    <option value="4" @if ($servicio->id_categoria === 4) selected @endif>Legales</option>
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="numero_contacto" class="form-label">Número telefonico</label>
+                <input type="text"  class="form-control" id="numero_contacto" name="numero_contacto" value="{{ $servicio->numero_contacto}}">
             </div>
 
             <div class="mb-3">
