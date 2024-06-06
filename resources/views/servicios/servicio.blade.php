@@ -22,7 +22,7 @@
                         <td>{{ $servicio->nombre_servicio }}</td>
                         <td class="truncate-text">{{ $servicio->descripcion_servicio }}</td>
                         <td>{{ $servicio->precio }}</td>
-                        <td class="text-center">{{ $servicio->id_categoria }}</td>
+                        <td class="text-center">{{ $servicio->categoria->nombre_categoria }}</td>
                         <td class="truncate-text">{{ $servicio->imagen }}</td>
                         <td>
                             <a class="btn btn-primary mb-3" style="width: 100%"

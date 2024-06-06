@@ -89,7 +89,9 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cuenta</a>
+                        <a href="#" class="nav-link " data-toggle="dropdown">
+                        <i class="fas fa-user-circle"></i>
+                        </a>
                         <div class="dropdown-menu border-0 rounded-0 m-0">
                             @if(Auth::check())
                                 <a href="{{ route('servicio.index') }}" class="dropdown-item">Mis servicios</a>

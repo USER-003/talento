@@ -16,7 +16,7 @@ class Servicio extends Model
 
     public function categoria()
     {
-        return $this->belongsTo(CategoriaDeServicio::class, 'id_categoria');
+        return $this->belongsTo(CategoriasDeServicio::class, 'id_categoria');
     }
 
     public function usuario()

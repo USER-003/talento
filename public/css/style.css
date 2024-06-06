@@ -186,6 +186,11 @@ a:not([href]):not([class]):hover {
     /* Agrega puntos suspensivos (...) al final del texto truncado */
 }
 
+.icono-user {
+  width: 32px;  /* Ancho del ícono */
+  height: 32px; /* Alto del ícono */
+}
+
 pre,
 code,
 kbd,
@@ -540,7 +545,18 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
+  width: 100%;
+  height: 200px;
+}
+
+.img-son {
+  width: 100%;
+  height: auto;
+}
+
+.img-dad {
+  width: 100%;
+  max-width: 200px;
   height: auto;
 }
 

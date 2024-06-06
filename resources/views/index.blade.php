@@ -138,19 +138,35 @@
                 <h1>Categorías</h1>
             </div>
             <div class="row">
-                @foreach ($categorias as $categoria)
-                    <div class="col-lg-6 mb-4"> <!-- Para dos categorías por fila en pantallas grandes -->
-                        <div class="card">
-                            <img class="card-img-top" src="img/destination-{{ $categoria->id_categoria }}.jpg"
-                                alt="Tecnología">
-                            <div class="card-body">
-                                <h5 class="card-title text-capitalize">{{ $categoria->nombre_categoria }}</h5>
-                                <p class="card-text">{{ $categoria->descripcion_categoria }}</p>
-                                <a href="#tech" class="btn btn-primary">Ver más</a>
-                            </div>
+            @foreach ($categorias as $categoria)
+                <div class="col-lg-6 mb-4"> <!-- Para dos categorías por fila en pantallas grandes -->
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('img/destination-' . $categoria->id_categoria . '.jpg') }}" alt="{{ $categoria->nombre_categoria }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-capitalize">{{ $categoria->nombre_categoria }}</h5>
+                            <p class="card-text">{{ $categoria->descripcion_categoria }}</p>
+                            @if ('Tecnología' == $categoria->nombre_categoria)
+                                <a href="{{ route('categoriaTech') }}" class="btn btn-primary">Ver más</a>
+                            @endif
+
+                            @if ('Negocios' == $categoria->nombre_categoria)
+                            <a href="{{ route('categoriaNegocios') }}" class="btn btn-primary">Ver más</a>
+                            @endif
+
+                            @if ('Educación' == $categoria->nombre_categoria)
+                            <a href="{{ route('categoriaEducacion') }}" class="btn btn-primary">Ver más</a>
+                            @endif
+
+                            @if ('Legales' == $categoria->nombre_categoria)
+                            <a href="{{ route('categoriaLeyes') }}" class="btn btn-primary">Ver más</a>
+                            @endif
+
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
+
+
 
             </div>
         </div>
@@ -166,15 +182,20 @@
                 <h1>TECNOLOGÍA</h1>
             </div>
             <div class="row">
+                @php
+                    $serviciosTecnologia = $servicios->filter(function ($servicio) {
+                        return $servicio->id_categoria === 1;
+                    })->take(3);
+                @endphp
 
-                @foreach ($servicios as $servicio)
-                    @if ($servicio->id_categoria === 1)
+                @foreach ($serviciosTecnologia as $servicio)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
+                                
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
+                            
                                 <div class="p-4">
-                                    <a class="h5 text-decoration-none"
-                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                <a class="h5 text-decoration-none" href="{{ route('servicio.info', $servicio->id_servicios_personales) }}">{{ $servicio->nombre_servicio }}</a>
                                     <p>{{ $servicio->descripcion_servicio }}</p>
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
@@ -185,13 +206,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    
                 @endforeach
 
             </div>
         </div>
         <div class="text-center">
-            <a href="#explorar">Todos los servicios</a>
+            <a href="{{ route('categoriaTech') }}">Todos los servicios</a>
         </div>
     </div>
     <div class="container-fluid py-5" id="educacion">
@@ -202,14 +223,20 @@
             </div>
             <div class="row">
 
-                @foreach ($servicios as $servicio)
-                    @if ($servicio->id_categoria === 3)
+                @php
+                    $serviciosEducacion = $servicios->filter(function ($servicio) {
+                        return $servicio->id_categoria === 3;
+                    })->take(3);
+                @endphp
+
+                @foreach ($serviciosEducacion as $servicio)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
+                     
                                 <div class="p-4">
-                                    <a class="h5 text-decoration-none"
-                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                <a class="h5 text-decoration-none" href="{{ route('servicio.info', $servicio->id_servicios_personales) }}">{{ $servicio->nombre_servicio }}</a>
+
                                     <p>{{ $servicio->descripcion_servicio }}</p>
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
@@ -220,13 +247,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                
                 @endforeach
 
             </div>
         </div>
         <div class="text-center">
-            <a href="#explorar">Todos los servicios</a>
+            <a href="{{ route('categoriaEducacion') }}">Todos los servicios</a>
         </div>
     </div>
 
@@ -239,14 +266,18 @@
             </div>
             <div class="row">
 
-                @foreach ($servicios as $servicio)
-                    @if ($servicio->id_categoria === 2)
+                @php
+                    $serviciosNegocios = $servicios->filter(function ($servicio) {
+                        return $servicio->id_categoria === 2;
+                    })->take(3);
+                @endphp
+
+                @foreach ($serviciosNegocios as $servicio)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
                                 <div class="p-4">
-                                    <a class="h5 text-decoration-none"
-                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                <a class="h5 text-decoration-none" href="{{ route('servicio.info', $servicio->id_servicios_personales) }}">{{ $servicio->nombre_servicio }}</a>
                                     <p>{{ $servicio->descripcion_servicio }}</p>
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
@@ -257,13 +288,12 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
                 @endforeach
 
             </div>
         </div>
         <div class="text-center">
-            <a href="#explorar">Todos los servicios</a>
+            <a href="{{ route('categoriaNegocios') }}">Todos los servicios</a>
         </div>
     </div>
 
@@ -275,14 +305,18 @@
             </div>
             <div class="row">
 
-                @foreach ($servicios as $servicio)
-                    @if ($servicio->id_categoria === 4)
+                @php
+                    $serviciosLegales = $servicios->filter(function ($servicio) {
+                        return $servicio->id_categoria === 4;
+                    })->take(3);
+                @endphp
+
+                @foreach ($serviciosLegales as $servicio)
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="package-item bg-white mb-2">
                                 <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
                                 <div class="p-4">
-                                    <a class="h5 text-decoration-none"
-                                        href="#">{{ $servicio->nombre_servicio }}</a>
+                                <a class="h5 text-decoration-none" href="{{ route('servicio.info', $servicio->id_servicios_personales) }}">{{ $servicio->nombre_servicio }}</a>
                                     <p>{{ $servicio->descripcion_servicio }}</p>
                                     <div class="border-top mt-4 pt-4">
                                         <div class="d-flex justify-content-between">
@@ -293,13 +327,13 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    
                 @endforeach
 
             </div>
         </div>
         <div class="text-center">
-            <a href="#explorar">Todos los servicios</a>
+            <a href="{{ route('categoriaLeyes') }}">Todos los servicios</a>
         </div>
     </div>
 

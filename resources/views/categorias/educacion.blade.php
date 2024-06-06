@@ -11,10 +11,10 @@
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="">Inicio</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Legales</p>
+                    <p class="m-0 text-uppercase">Educación</p>
                 </div>
                 <form class="input-group input-group-lg mt-3" role="search" action="{{ route('category') }}" method="GET">
-                    <input type="hidden" name="categoria_id" value="4">
+                    <input type="hidden" name="categoria_id" value="3">
                     <input class="form-control me-2" type="search" name="query" placeholder="Buscar servicios relacionados a Tecnología" aria-label="Search" value="{{$query ?? ''}}" >
                     <button class="btn btn-danger" type="submit">Buscar</button>
                 </form>
@@ -30,12 +30,12 @@
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Servicios de</h6>
-                <h1>LEGALES</h1>
+                <h1>EDUCACIÓN</h1>
             </div>
             <div class="row">
 
             @forelse ($servicios as $servicio)
-                @if ($servicio->id_categoria === 4)
+                @if ($servicio->id_categoria === 3)
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
                             <img class="img-fluid" src="{{ $servicio->imagen }}" alt="">
