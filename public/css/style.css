@@ -47,6 +47,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -183,6 +184,11 @@ a:not([href]):not([class]):hover {
     /* Oculta el texto que excede el ancho máximo */
     text-overflow: ellipsis;
     /* Agrega puntos suspensivos (...) al final del texto truncado */
+}
+
+.icono-user {
+  width: 32px;  /* Ancho del ícono */
+  height: 32px; /* Alto del ícono */
 }
 
 pre,
@@ -539,7 +545,18 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
+  width: 100%;
+  height: 200px;
+}
+
+.img-son {
+  width: 100%;
+  height: auto;
+}
+
+.img-dad {
+  width: 100%;
+  max-width: 200px;
   height: auto;
 }
 
@@ -7208,8 +7225,8 @@ button.bg-dark:focus {
 .fixed-top {
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
+  right: 100px;
+  left: 100px;
   z-index: 1030;
 }
 
@@ -9781,3 +9798,5 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+
+

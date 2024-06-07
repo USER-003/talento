@@ -1,6 +1,4 @@
 <?php
-// app/Models/Servicio.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,26 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servicio extends Model
 {
-    use HasFactory;
-
-
+   
+    protected $table = 'servicios_personales';
+    protected $primaryKey = 'id_servicios_personales';
 
     protected $fillable = [
-        'id_categoria',
-        'nombre_servicio',
-        'descripcion_servicio',
-        'precio',
-        'email',
-        'numero_contacto',
+        'id_categoria', 'id_usuario', 'nombre_servicio', 'descripcion_servicio', 'precio', 'imagen', 'numero_contacto',
     ];
 
     public function categoria()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(CategoriasDeServicio::class, 'id_categoria');
     }
 
-    public function miservicio()
+    public function usuario()
     {
-        return $this->hasMany(MiServicio::class);
+        return $this->belongsTo(Usuario::class, 'id_usuario');
     }
 }
